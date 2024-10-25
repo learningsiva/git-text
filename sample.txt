@@ -1,4 +1,47 @@
+using System;
 
+public class Counter
+{
+    // Static field
+    public static int count = 0;
 
-hi i am dev4
+    // Instance field
+    public int instanceCount = 0;
 
+    // Static method
+    public static void DisplayCount()
+    {
+        Console.WriteLine("Static count: " + count);
+    }
+
+    // Instance method
+    public void IncrementCount()
+    {
+        count++;            // Increments the static field, shared across all instances
+        instanceCount++;    // Increments the instance field, unique to each instance
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Accessing static members without creating an instance
+        Counter.DisplayCount(); // Output: Static count: 0
+
+        // Creating instances of the Counter class
+        Counter counter1 = new Counter();
+        Counter counter2 = new Counter();
+
+        // Incrementing counts using both instances
+        counter1.IncrementCount();  // counter1 instance increments both static and instance fields
+        counter2.IncrementCount();  // counter2 increments the static field and its own instance field
+
+        // Accessing the static count (shared by all instances)
+        Console.WriteLine("Static count after incrementing: " + Counter.count); // Output: Static count after incrementing: 2
+
+        // Accessing the instance count (specific to each instance)
+        Console.WriteLine("counter1 instance count: " + counter1.instanceCount); // Output: counter1 instance count: 1
+        Console.WriteLine("counter2 instance count: " + counter2.instanceCount); // Output: counter2 instance count: 1
+    }
+}
