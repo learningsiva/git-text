@@ -1,3 +1,4 @@
+
 using System;
 
 public class Counter
@@ -7,6 +8,21 @@ public class Counter
 
     // Instance field
     public int instanceCount = 0;
+
+int[,,] cube = { 
+    { { 1, 2 }, { 3, 4 } }, 
+    { { 5, 6 }, { 7, 8 } } 
+};
+
+// Accessing elements
+Console.WriteLine(cube[0, 0, 1]); // Output: 2
+Console.WriteLine(cube[1, 1, 0]); // Output: 7
+
+// Modifying elements
+cube[1, 0, 1] = 12;
+Console.WriteLine(cube[1, 0, 1]); // Output: 12
+
+
 
     // Static method
     public static void DisplayCount()
